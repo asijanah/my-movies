@@ -7,12 +7,14 @@ import People from './pages/actors/index.jsx';
 import MoivieNav from './components/Navbar/index.jsx';
 import DetailsPage from './pages/detailsPage/index.jsx';
 
-
+// import People from './pages/actors/index.jsx';
+// import MoivieNav from './components/Navbar/index.jsx';
+// import DetailsPage from './pages/detailsPage/index.jsx';
 
 function App() {
   return (
     <BrowserRouter>
-      <MoivieNav />
+      {/* <MoivieNav /> */}
       <Switch>
           <Route path="/" exact={true}>
               <Home />
@@ -20,9 +22,9 @@ function App() {
           <Route path="/actors">
               <People />
           </Route>
-          <Route path="/movie/:movieId">
+             {/* <Route path="/movie/:movieId">
               <DetailsPage />
-          </Route>
+          </Route> */}
       </Switch>
     </BrowserRouter>
   );
