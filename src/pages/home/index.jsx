@@ -157,92 +157,93 @@ function Home() {
     // console.log("movies.ganer=",movies.
     // genres.name);
     return (
-        <BrowserRouter>
+        // <BrowserRouter>
 
-            <MovieNav onSearch={onSearch} />
+        //     <MovieNav onSearch={onSearch} />
 
-            <Switch>
-                <Route path={["/home", "/"]} exact={true}>
+        //     <Switch>
+        //         <Route path={["/home", "/"]} exact={true}>
+        <>
+            <div className="filter">
+                <div className="movie-list mt-3">
+                    <label className="selectMovie" htmlFor="sorting">which movie list:</label>
+                    <select className="dropDown" defaultValue="discover"
+                        onChange={showWhichMovieList}
+                        name="whichMovieList"
+                        id="whichMovieList">
+                        <option value="discover">Browse </option>
+                        <option value="top_rated">Top Rated</option>
+                    </select>
+                </div>
 
-                    <div className="filter">
-                        <div className="movie-list mt-3">
-                            <label className="selectMovie" htmlFor="sorting">which movie list:</label>
-                            <select className="dropDown" defaultValue="discover"
-                                onChange={showWhichMovieList}
-                                name="whichMovieList"
-                                id="whichMovieList">
-                                <option value="discover">Browse </option>
-                                <option value="top_rated">Top Rated</option>
-                            </select>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                                onChange={sortByViewers}
-                            />
-                            <label class="form-check-label" for="exampleRadios1">
-                                Most popular Movies
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                        onChange={sortByViewers}
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                        Most popular Movies
                             </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
-                                onChange={sortByDate}
-                            />
-                            <label class="form-check-label" for="exampleRadios2">
-                                Newest Movies
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
+                        onChange={sortByDate}
+                    />
+                    <label class="form-check-label" for="exampleRadios2">
+                        Newest Movies
                             </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
-                                onChange={sortAlphabetically}
-                                check />
-                            <label class="form-check-label" for="exampleRadios2">
-                                Ascending by abc
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
+                        onChange={sortAlphabetically}
+                        check />
+                    <label class="form-check-label" for="exampleRadios2">
+                        Ascending by abc
                             </label>
-                        </div>
+                </div>
 
 
-                        <div className="pageNavigation-section">
-                            <span className="displayPageNum">{`Page ${movies[0].page} of ${movies[0].total_pages}`}</span>
-                            <div className="btn-wrapper">
-                                {(movies[0].page > 1) &&
-                                    <button className="navBtn mr-3"
-                                        onClick={() =>
-                                            fetchMovies(movies[0].queryType, movies[0].page - 1)}>
-                                        Back</button>}
-                                {(movies[0].page < movies[0].total_pages) &&
-                                    <button className="navBtn mr-3"
-                                        onClick={() =>
-                                            fetchMovies(movies[0].queryType, movies[0].page + 1)}>
-                                        Next</button>}
-                                {(movies[0].page > 1) &&
-                                    <button className="navBtn mr-3"
-                                        onClick={() =>
-                                            fetchMovies(movies[0].queryType, 1)}>
-                                        First</button>}
-                                {(movies[0].page < movies[0].total_pages) &&
-                                    <button className="navBtn mr-3"
-                                        onClick={() =>
-                                            fetchMovies(movies[0].queryType, movies[0].total_pages)}>
-                                        Last</button>}
-                            </div>
-
-                            {/* {movies[0].page===1 ?<p>Hello</p>:<p>World</p>}  */}
-                        </div>
+                <div className="pageNavigation-section">
+                    <span className="displayPageNum">{`Page ${movies[0].page} of ${movies[0].total_pages}`}</span>
+                    <div className="btn-wrapper">
+                        {(movies[0].page > 1) &&
+                            <button className="navBtn mr-3"
+                                onClick={() =>
+                                    fetchMovies(movies[0].queryType, movies[0].page - 1)}>
+                                Back</button>}
+                        {(movies[0].page < movies[0].total_pages) &&
+                            <button className="navBtn mr-3"
+                                onClick={() =>
+                                    fetchMovies(movies[0].queryType, movies[0].page + 1)}>
+                                Next</button>}
+                        {(movies[0].page > 1) &&
+                            <button className="navBtn mr-3"
+                                onClick={() =>
+                                    fetchMovies(movies[0].queryType, 1)}>
+                                First</button>}
+                        {(movies[0].page < movies[0].total_pages) &&
+                            <button className="navBtn mr-3"
+                                onClick={() =>
+                                    fetchMovies(movies[0].queryType, movies[0].total_pages)}>
+                                Last</button>}
                     </div>
 
-                    <div className="cards-grid" >
-                        {/* <span>{`${movie.id}:  ${movie.title}`} </span>
+                    {/* {movies[0].page===1 ?<p>Hello</p>:<p>World</p>}  */}
+                </div>
+            </div>
+
+            <div className="cards-grid" >
+                {/* <span>{`${movie.id}:  ${movie.title}`} </span>
                             <img src={`${conf.base_url}/${conf.logo_sizes[1]}/${movie.poster_path}`} alt={movie.title}/> */}
 
-                        {movies.map(movie => {
-                            return (
-                                <Card key={movie.id} movie={movie} />
-                            )
-                        })}
-                        {/* <button onClick={()=>showMovies()}> Show Movies</button> */}
-                    </div>
-                </Route>
+                {movies.map(movie => {
+                    return (
+                        <Card key={movie.id} movie={movie} />
+                    )
+                })}
+                {/* <button onClick={()=>showMovies()}> Show Movies</button> */}
+            </div>
+        
+                {/* </Route>
                 <Route path={'/actors'}>
                     <div className="actorsWrapper">
                         <People />
@@ -252,7 +253,8 @@ function Home() {
                     <MovieDetails movies={movies} />
                 </Route>
             </Switch>
-        </BrowserRouter>
+        </BrowserRouter> */}
+        </>
     )
 };
 
