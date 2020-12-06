@@ -162,7 +162,7 @@ function Home() {
             <MovieNav onSearch={onSearch} />
 
             <Switch>
-                <Route path={["/home", "/"]} exact={true}>
+                <Route path={["/"]} exact={true}>
 
                     <div className="filter">
                         <div className="movie-list mt-3">
