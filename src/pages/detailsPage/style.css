@@ -1,0 +1,93 @@
+/* head section */
+
+.head {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.button.backToMain {
+    position: fixed;
+    right: 25px;
+    top: 80px;
+}
+.detailsPage.mainImg {
+    height: 35em;
+    width: auto;
+    border-radius: 4%;
+    border: 5px solid grey;
+    transition: all 0.5s;
+}
+
+.detailsPage.mainImg:hover {
+    transform: rotate(8deg);
+}
+
+.detailsPage.head-details {
+    width: 40rem;
+}
+
+.plot-summery {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.detailsPage.review-button {
+    margin-top: 30px;
+}
+
+/* Actors section */
+
+.headline.Lead-Actors {
+    margin-left: 20px;
+}
+
+.detaisPage.actors {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.oneActor {
+    height: 20rem;
+    width: auto;
+    margin: 20px;
+    border-radius: 6%;
+    border: 8px solid grey;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.oneActor:hover {
+    transform: scale(1.1);
+}
+
+/* Similar movies section */
+
+.similarMovies {
+    display: flex;
+    justify-content: space-around;
+}
+
+.similarMovies-header {
+    margin-left: 20px;
+}
+
+.movieSim {
+    height: 10rem;
+    width: auto;
+    margin: 10px;
+    border-radius: 6%;
+    border: 5px solid grey;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.movieSim:hover {
+    transform: scale(1.1);
+}
+
+.loading {
+    margin-left: auto;
+    margin-right: auto;
+}
